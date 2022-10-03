@@ -1,44 +1,23 @@
-const express = require('express')
+// Load express
+const express = require('express');
 
-const app = express()
-// const PORT = 3000
-
-// const names = ['John', 'Mike']
+// Create our express app
+const app = express();
 
 
-app.get('/', (req, res) => {
-    res.send('<h1>Hello, stranger</h1>')
+app.get('/tip', (req, res) =>{
+    res.send('')
 })
 
-app.get('/:name', (req, res) =>{
+app.get('/tip/:total/:tipPercentage', (req, res) => {
+    
+    const {total, tipPercentage} = req.params
 
-    const {name} = req.params
-
-    res.send(`<h1>Wow! Hello there, ${name}</h1>`)
+    res.send(`Your total is $${total}, and the tip amount is $${tipPercentage}! Sorry about the inflation!`)
 })
+
 
 
 app.listen(3000, function () {
     console.log('Listening on port 3000');
 })
-
-
-// ==========================
-
-// app.get('/tip', (req, res) =>{
-//     res.send('')
-// })
-
-// app.get('/tip/:total/:tipPercentage', (req, res) => {
-    
-//     const {total, tipPercentage} = req.params
-
-//     res.send(`Your total is $${total}, and the tip amount is $${tipPercentage}! Sorry about the inflation!`)
-// })
-
-
-
-// app.listen(3000, function () {
-//     console.log('Listening on port 3000');
-// })
-
